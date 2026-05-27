@@ -6,7 +6,36 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  
+  <style>
+    /* 自定义更现代的细节微调 */
+    :root {
+      /* 舒适的深色背景，带有微妙的蓝色调 */
+      --base-background: #12141c;
+      --sidebar-background: #181b24;
+      
+      /* 代码块现代化：深色磨砂质感 */
+      --code-theme-background: #1e222b;
+      --code-inline-background: #282c34;
+      --code-inline-color: #e06c75;
+      
+      /* 间距与圆角现代化 */
+      --content-max-width: 55em;
+      --border-radius: 8px;
+      
+      /* 字体升级为现代系统无衬线字体 */
+      --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    
+    /* 修复代码框和自定义提示框的圆角、阴影 */
+    pre[class*="language-"] {
+      border-radius: var(--border-radius) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      padding: 1.2em !important;
+    }
+  </style>
 </head>
 <body>
   <div id="app">加载中...</div>
@@ -14,13 +43,24 @@
     window.$docsify = {
       name: 'SeaGodotBook',
       repo: 'https://github.com/sea137/SeaGodotBook',
-      loadSidebar: true, // 开启左侧侧边栏目录
-      subMaxLevel: 2,    // 自动抓取 md 文件里的标题作为子目录
-      search: 'auto',    // 开启搜索功能
+      loadSidebar: true,
+      subMaxLevel: 2,
+      search: 'auto',
+      
+      // themeable 插件的配置，让导航和内容过渡更平滑
+      themeable: {
+          readyTransition : true,
+          responsiveTables: true
+      }
     }
   </script>
-  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
-  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
 </body>
 </html>
