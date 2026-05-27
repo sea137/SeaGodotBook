@@ -3,82 +3,140 @@
 <head>
   <meta charset="UTF-8">
   <title>SeaGodotBook - Godot基础教程</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="SeaGodotBook：系统、现代的 Godot 4 游戏开发教程，全中文，示例驱动。">
   
-  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/themes/dark.css">
-  
+  <!-- 国内高速 CDN (staticfile + zhimg) -->
+  <link rel="stylesheet" href="https://cdn.staticfile.org/docsify-themeable/0.0.3/themes/theme-simple-dark.min.css">
+  <!-- 自定义高级深色主题，覆盖玻璃态 -->
   <style>
-    /* 自定义现代感十足的 UI 微调 */
     :root {
-      /* 舒适高级的深色背景，完全对标图 3 风格 */
-      --background: #14161f;
-      --sidebar-background: #1c1f2b;
-      --theme-color: #00bcd4; /* 现代青色高亮 */
-      
-      /* 内容宽度与透气感 */
-      --content-max-width: 60em;
+      --base-background: #0B0E14;
+      --base-color: #E2E8F0;
+      --sidebar-background: #0F1219;
+      --sidebar-nav-link-color: #A0AEC0;
+      --sidebar-nav-link-active-color: #60A5FA;
+      --sidebar-nav-link-active-background: rgba(96, 165, 250, 0.12);
+      --code-theme-background: #1A1E2A;
+      --code-inline-background: #232632;
+      --code-inline-color: #F472B6;
+      --monospace-font: 'JetBrains Mono', 'Fira Code', monospace;
+      --content-max-width: 56em;
     }
-    
     body {
-      background-color: var(--background) !important;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+      letter-spacing: -0.01em;
+      background: radial-gradient(circle at 10% 20%, #1A2538, #0B0E14) fixed;
     }
-
-    /* 侧边栏样式现代化 */
-    .sidebar {
-      background-color: var(--sidebar-background) !important;
-      border-right: 1px solid #25293a !important;
+    /* 侧边栏滚动条美化 */
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
     }
-    .sidebar-nav ul li a {
-      color: #b0b8c6 !important;
-      font-size: 15px;
+    .sidebar::-webkit-scrollbar-track {
+      background: #1E2433;
     }
-    .sidebar-nav ul li a:hover, .sidebar-nav ul li.active > a {
-      color: var(--theme-color) !important;
-      font-weight: 600;
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #4B5563;
+      border-radius: 8px;
     }
-
-    /* 代码块圆角与高档黑夜磨砂阴影 */
-    section.content pre[class*="language-"] {
-      background: #1e2230 !important;
-      border-radius: 8px !important;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
-      padding: 1.2em !important;
-      border: 1px solid #2a2f42;
+    /* 代码块圆润+阴影 */
+    pre[class*="language-"] {
+      border-radius: 16px !important;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      border: 1px solid rgba(96, 165, 250, 0.15);
     }
-    
-    /* 搜索框漂亮样式 */
-    .search input {
-      background: #25293a !important;
-      border: 1px solid #31374d !important;
-      color: #fff !important;
-      border-radius: 6px !important;
+    /* 搜索框样式优化 */
+    .search {
+      border-radius: 40px !important;
+      background: #1E2433 !important;
+    }
+    /* 右侧内容区域平滑 */
+    .content {
+      backdrop-filter: blur(2px);
+    }
+    /* 给 H2 添加左侧装饰条 */
+    .markdown-section h2 {
+      border-left: 4px solid #3B82F6;
+      padding-left: 1rem;
+      margin-top: 2rem;
+    }
+    /* 自定义提示块（可后续扩展） */
+    .markdown-section blockquote {
+      background: #11161F;
+      border-left: 4px solid #3B82F6;
+      border-radius: 16px;
+      padding: 1rem 1.5rem;
     }
   </style>
 </head>
 <body>
-  <div id="app">加载中...</div>
+  <div id="app">正在加载教程内容...</div>
   <script>
     window.$docsify = {
-      name: 'SeaGodotBook',
-      repo: 'https://github.com/sea137/SeaGodotBook',
-      loadSidebar: true, // 必须开启侧边栏
-      subMaxLevel: 2,    // 自动抓取 md 里的标题
+      name: '📘 SeaGodotBook',
+      repo: 'https://github.com/sea137/SeaGodotBook',    // 右上角 github 链接
+      loadSidebar: true,
+      subMaxLevel: 2,           // 侧边栏显示到二级标题
+      auto2top: true,
       search: {
         maxAge: 86400000,
         paths: 'auto',
-        placeholder: '搜索教程...',
-        noData: '未找到相关内容',
-        depth: 6
-      }
+        placeholder: '🔍 搜索教程内容...',
+        noData: '😢 没有找到相关结果'
+      },
+      copyCode: {
+        buttonText: '📋 复制',
+        successText: '✅ 已复制'
+      },
+      pagination: {
+        previousText: '📖 上一章',
+        nextText: '📖 下一章'
+      },
+      // 侧边栏支持嵌套层级（根据缩进自动识别）
+      sidebarDisplayLevel: 1,
+      // 让代码高亮支持 GDScript（将 gdscript 视为 python 高亮）
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      notFoundPage: true,
+      // 注意：因为 .md 文件都放在 test/ 下，但 Docsify 加载 sidebar 等仍从根目录读，
+      // 只要 _sidebar.md 里写对路径即可，这里无需额外 alias。
     }
   </script>
   
-  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/docsify.min.js"></script>
+  <!-- 使用国内高速镜像的核心库 + 插件 -->
+  <script src="https://cdn.staticfile.org/docsify/4.13.0/docsify.min.js"></script>
+  <!-- 主题切换支持（必须） -->
+  <script src="https://cdn.staticfile.org/docsify-themeable/0.0.3/index.min.js"></script>
   
-  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/plugins/search.min.js"></script>
+  <!-- 搜索插件 -->
+  <script src="https://cdn.staticfile.org/docsify/4.13.0/plugins/search.min.js"></script>
+  <!-- 复制代码插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+  <!-- 分页导航插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.7.0/dist/docsify-pagination.min.js"></script>
   
-  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prismjs/1.27.0/components/prism-python.min.js"></script>
+  <!-- 代码高亮：支持 GDScript（复用 Python 语法）并额外修复 -->
+  <script src="https://cdn.staticfile.org/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdn.staticfile.org/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script>
+    // 让 gdscript 代码块使用 python 高亮规则
+    if (typeof Prism !== 'undefined') {
+      Prism.languages.gdscript = Prism.languages.python;
+      Prism.languages.gdscript = Prism.languages.extend('gdscript', {
+        'keyword': /\b(extends|func|var|const|onready|export|signal|enum|if|elif|else|for|while|break|continue|return|pass|class|tool|static|yield|await|setget|match|breakpoint)\b/
+      });
+    }
+  </script>
+  <script>
+    // 强制重新渲染侧边栏（确保 test/ 路径正确时不会因为加载顺序丢失）
+    (function() {
+      var originalLoad = window.$docsify.loadSidebar;
+      if (originalLoad) {
+        window.$docsify.loadSidebar = function(...args) {
+          console.log('✅ 侧边栏加载中... 请确保 _sidebar.md 存在且路径正确');
+          return originalLoad.apply(this, args);
+        };
+      }
+    })();
+  </script>
 </body>
 </html>
