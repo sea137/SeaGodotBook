@@ -2,7 +2,6 @@
 layout: default
 title: 首页
 nav_order: 1
-description: "欢迎来到 SeaGodotBook"
 permalink: /
 ---
 
@@ -14,7 +13,7 @@ permalink: /
 
 - 左侧 **侧边栏** 按章节顺序阅读
 - 右上角 **搜索框** 可快速定位知识点
-- 代码示例均经过测试，可直接复制使用
+- 所有代码示例均可直接复制使用
 
 ## 🚀 你将学到
 
