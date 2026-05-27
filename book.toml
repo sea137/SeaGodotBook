@@ -1,18 +1,5 @@
 [book]
+title = "SeaGodot"
 authors = ["sea137"]
-language = "zh"
-multilingual = false
+language = "zh-CN"
 src = "src"
-title = "SeaGodotBook"
-
-[output.html]
-# 启用搜索
-search = true
-# 侧边栏默认展开
-git-repository-url = "https://github.com/sea137/SeaGodotBook"
-# 页面上的编辑按钮链接（方便读者提出修改）
-edit-url-template = "https://github.com/sea137/SeaGodotBook/edit/main/src/{path}"
-
-# 可选：自定义主题颜色（默认是橙色，可以改成 Godot 风格的蓝色）
-[output.html.theme]
-favicon = "favicon.svg"   # 如果你有 favicon 可以放 src 目录下
