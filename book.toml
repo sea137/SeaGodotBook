@@ -1,13 +1,4 @@
 [book]
 title = "SeaGodot"
-authors = ["sea137"]
-language = "zh-CN"
-src = "src"
-description = "SeaGodot文档"
-
-[build]
-build-dir = "docs"
-
-[output.html]
-default-theme = "light"
-git-repository-url = "https://github.com/sea137/SeaGodotBook"
+authors = []
+language = "en"
