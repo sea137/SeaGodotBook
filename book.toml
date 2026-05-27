@@ -1,5 +1,30 @@
 [book]
 title = "SeaGodot"
 authors = ["sea137"]
-language = "zh-CN"
+language = "zh-CN"      # 保持中文，方便国内读者和浏览器翻译识别
 src = "src"
+
+[build]
+# 如果你想让 GitHub Actions 依然输出到默认的 book 文件夹，这行可以不加。
+# 如果需要配合其他特殊脚本，可像对方一样改成 "docs"
+build-dir = "book"
+
+# ---------- 🎈 宝藏高亮提示框插件（推荐保留） ----------
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "2.0.0"
+
+# ---------- 🎨 网页外观与自定义微调 ----------
+[output.html]
+# 默认主题建议设为 "navy" 或 "coal"（暗黑模式），非常贴合你之前想要的极客科技感
+default-theme = "navy"
+
+# 自定义网页右上角的 GitHub 图标直达链接
+git-repository-url = "https://github.com/sea137/SeaGodotBook"
+
+# 引入自定义的样式和提示框样式（帮你把对方写错的路径格式修正了）
+additional-css = ["mdbook-admonish.css", "src/css/style.css"]
+additional-js = ["src/js/style.js"]
+
+# 开启左侧树状目录的折叠功能，章节多了之后会非常整洁
+collate-chapters = true
