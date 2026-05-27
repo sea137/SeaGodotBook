@@ -3,8 +3,7 @@ title = "SeaGodot"
 authors = ["sea137"]
 language = "zh-CN"
 src = "src"
-description = "SeaGodot 游戏开发文档"
-version = "0.1.0"
+description = "SeaGodot文档"
 
 [build]
 build-dir = "docs"
