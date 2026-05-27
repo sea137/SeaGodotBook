@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
   
   <style>
-    /* 强制汉化搜索框内的提示文字并还原样式 */
+    /* 强制汉化并微调搜索框 */
     .search input::placeholder {
       color: #888 !important;
     }
-    /* 侧边栏高亮字体颜色 */
+    /* 侧边栏激活项高亮颜色 */
     .sidebar-nav li.active > a {
       color: #00bcd4 !important;
       font-weight: bold;
@@ -24,10 +24,11 @@
   <div id="app">正在加载中，请稍候...</div>
   <script>
     window.$docsify = {
-      name: 'GDScript 零基础图文入门', // 网站标题
+      name: 'GDScript 零基础图文入门', 
       loadSidebar: true,               // 必须：开启侧边栏
-      subMaxLevel: 3,                  // 抓取文章内标题的深度
+      subMaxLevel: 3,                  
       auto2top: true,
+      homepage: 'test/1.控制移动.md',  // 【核心修改】强制把第一篇文章当成网站主页，防止首页空白
       
       // 搜索栏完整中文配置
       search: {
