@@ -9,11 +9,9 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/dark.css">
   
   <style>
-    /* 强制汉化并微调搜索框 */
     .search input::placeholder {
       color: #888 !important;
     }
-    /* 侧边栏激活项高亮颜色 */
     .sidebar-nav li.active > a {
       color: #00bcd4 !important;
       font-weight: bold;
@@ -25,12 +23,11 @@
   <script>
     window.$docsify = {
       name: 'GDScript 零基础图文入门', 
-      loadSidebar: true,               // 必须：开启侧边栏
+      loadSidebar: true,               // 开启侧边栏
       subMaxLevel: 3,                  
       auto2top: true,
-      homepage: 'test/1.控制移动.md',  // 【核心修改】强制把第一篇文章当成网站主页，防止首页空白
+      homepage: 'test/1.控制移动.md',  // 默认首页
       
-      // 搜索栏完整中文配置
       search: {
         maxAge: 86400000,
         paths: 'auto',
@@ -43,7 +40,6 @@
   
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-gdscript.min.js"></script>
 </body>
 </html>
