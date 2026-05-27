@@ -1,0 +1,32 @@
+# Jekyll 配置
+title: SeaGodotBook
+description: 系统、现代的 Godot 4 游戏开发教程，从零开始掌握游戏引擎。
+theme: just-the-docs
+
+# 网站 URL（GitHub Pages 会自动填充，可不写）
+url: "https://sea137.github.io"
+
+# 启用搜索
+search_enabled: true
+search.tokenizer_separator: /[\s/]+/
+
+# 侧边栏导航设置
+nav_enabled: true
+heading_anchors: true
+
+# 代码高亮主题（可选）
+color_scheme: dark  # 可选 dark, light 或自定义，根据喜好修改
+
+# 辅助功能：为外部链接添加图标
+external_navigation_enabled: true
+
+# 设置 markdown 解析器
+markdown: kramdown
+highlighter: rouge
+
+# 排除不需要处理的文件
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
