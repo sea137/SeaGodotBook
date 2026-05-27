@@ -1,0 +1,10 @@
+[book]
+authors = ["sea137"]
+language = "zh-CN"
+multilingual = false
+src = "."
+title = "GDScript 零基础图文入门"
+
+[output.html]
+default-theme = "navy"
+preferred-dark-theme = "navy"
