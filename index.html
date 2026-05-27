@@ -4,36 +4,56 @@
   <meta charset="UTF-8">
   <title>SeaGodotBook - Godot基础教程</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <link rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/themes/dark.css">
   
   <style>
-    /* 自定义更现代的细节微调 */
+    /* 自定义现代感十足的 UI 微调 */
     :root {
-      /* 舒适的深色背景，带有微妙的蓝色调 */
-      --base-background: #12141c;
-      --sidebar-background: #181b24;
+      /* 舒适高级的深色背景，完全对标图 3 风格 */
+      --background: #14161f;
+      --sidebar-background: #1c1f2b;
+      --theme-color: #00bcd4; /* 现代青色高亮 */
       
-      /* 代码块现代化：深色磨砂质感 */
-      --code-theme-background: #1e222b;
-      --code-inline-background: #282c34;
-      --code-inline-color: #e06c75;
-      
-      /* 间距与圆角现代化 */
-      --content-max-width: 55em;
-      --border-radius: 8px;
-      
-      /* 字体升级为现代系统无衬线字体 */
-      --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      /* 内容宽度与透气感 */
+      --content-max-width: 60em;
     }
     
-    /* 修复代码框和自定义提示框的圆角、阴影 */
-    pre[class*="language-"] {
-      border-radius: var(--border-radius) !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    body {
+      background-color: var(--background) !important;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    /* 侧边栏样式现代化 */
+    .sidebar {
+      background-color: var(--sidebar-background) !important;
+      border-right: 1px solid #25293a !important;
+    }
+    .sidebar-nav ul li a {
+      color: #b0b8c6 !important;
+      font-size: 15px;
+    }
+    .sidebar-nav ul li a:hover, .sidebar-nav ul li.active > a {
+      color: var(--theme-color) !important;
+      font-weight: 600;
+    }
+
+    /* 代码块圆角与高档黑夜磨砂阴影 */
+    section.content pre[class*="language-"] {
+      background: #1e2230 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.35);
       padding: 1.2em !important;
+      border: 1px solid #2a2f42;
+    }
+    
+    /* 搜索框漂亮样式 */
+    .search input {
+      background: #25293a !important;
+      border: 1px solid #31374d !important;
+      color: #fff !important;
+      border-radius: 6px !important;
     }
   </style>
 </head>
@@ -43,24 +63,22 @@
     window.$docsify = {
       name: 'SeaGodotBook',
       repo: 'https://github.com/sea137/SeaGodotBook',
-      loadSidebar: true,
-      subMaxLevel: 2,
-      search: 'auto',
-      
-      // themeable 插件的配置，让导航和内容过渡更平滑
-      themeable: {
-          readyTransition : true,
-          responsiveTables: true
+      loadSidebar: true, // 必须开启侧边栏
+      subMaxLevel: 2,    // 自动抓取 md 里的标题
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '搜索教程...',
+        noData: '未找到相关内容',
+        depth: 6
       }
     }
   </script>
   
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/docsify.min.js"></script>
   
-  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0"></script>
+  <script src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/docsify/4.12.2/plugins/search.min.js"></script>
   
-  <script src="https://cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-  
-  <script src="https://cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
+  <script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/prismjs/1.27.0/components/prism-python.min.js"></script>
 </body>
 </html>
