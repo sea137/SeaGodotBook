@@ -2,17 +2,21 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <title>SeaGodotBook - Godot教程</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SeaGodotBook - Godot基础教程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta name="description" content="SeaGodotBook - 系统、现代的 Godot 4 游戏开发教程">
+  
+  <!-- 国内高速 CDN (staticfile) 保证稳定加载 -->
   <link rel="stylesheet" href="https://cdn.staticfile.org/docsify/4.13.0/themes/vue.css">
+  
   <style>
-    /* 暗黑主题样式覆盖 */
-    body, .content, .markdown-section {
-      background: #0B0E14;
+    /* 自定义暗色主题，使界面更现代 */
+    body, .app-main, .markdown-section {
+      background: #0F1219;
       color: #E2E8F0;
     }
     .sidebar {
-      background: #0F1219;
+      background: #0B0E14;
       border-right: 1px solid #2a2f3f;
     }
     .sidebar-nav li>a {
@@ -21,10 +25,38 @@
     .sidebar-nav li>a.active {
       color: #3b82f6;
       border-right-color: #3b82f6;
+      background: rgba(59,130,246,0.1);
+    }
+    .search {
+      background: #1a1e2a;
+      border-radius: 24px;
+    }
+    .search input {
+      color: #fff;
+    }
+    .markdown-section h1, .markdown-section h2 {
+      border-bottom: 1px solid #2a3a54;
+      padding-bottom: 0.3rem;
     }
     .markdown-section code {
-      background: #1e2433;
+      background: #1E2433;
       color: #f472b6;
+      border-radius: 6px;
+    }
+    pre[class*="language-"] {
+      background: #1A1E2A !important;
+      border-radius: 12px;
+    }
+    /* 侧边栏滚动条 */
+    .sidebar::-webkit-scrollbar {
+      width: 4px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background: #1E2433;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background: #3b82f6;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -32,18 +64,71 @@
   <div id="app">加载中...</div>
   <script>
     window.$docsify = {
-      name: 'SeaGodotBook',
+      // 站点名称（显示在侧边栏顶部）
+      name: '📘 SeaGodotBook',
+      // GitHub 仓库链接（右上角）
       repo: 'https://github.com/sea137/SeaGodotBook',
+      // 开启侧边栏（关键！）
       loadSidebar: true,
+      // 侧边栏显示二级标题
       subMaxLevel: 2,
+      // 切换页面自动滚动到顶部
       auto2top: true,
-      search: 'auto',
-      notFoundPage: true,
-      // 确保侧边栏文件名为 _sidebar.md（根目录）
-      sidebar: '_sidebar.md'
+      // 全文搜索配置
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: '🔍 搜索教程内容...',
+        noData: '😢 没有找到相关结果'
+      },
+      // 复制代码插件
+      copyCode: {
+        buttonText: '📋 复制',
+        successText: '✅ 已复制'
+      },
+      // 分页导航（上一章/下一章）
+      pagination: {
+        previousText: '📖 上一章',
+        nextText: '📖 下一章'
+      },
+      // 处理侧边栏中 .md 链接的相对路径（你的文件都在 test/ 下）
+      relativePath: false,
+      // 找不到页面时显示友好提示
+      notFoundPage: {
+        message: '<h1>404</h1><p>页面不存在，请返回首页。</p>'
+      }
     }
   </script>
+  
+  <!-- 核心库 -->
   <script src="https://cdn.staticfile.org/docsify/4.13.0/docsify.min.js"></script>
+  
+  <!-- 搜索插件 -->
   <script src="https://cdn.staticfile.org/docsify/4.13.0/plugins/search.min.js"></script>
+  
+  <!-- 复制代码插件（提升体验） -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+  
+  <!-- 分页导航插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-pagination@2.7.0/dist/docsify-pagination.min.js"></script>
+  
+  <!-- 可选：图片缩放插件 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-zoom-image@1.0.2/dist/docsify-zoom-image.min.js"></script>
+  
+  <!-- 可选：GDScript 代码高亮（将 gdscript 映射为 python） -->
+  <script>
+    (function() {
+      // 等待 Prism 加载完成（docsify 内置 Prism，但可能延迟）
+      setTimeout(function() {
+        if (typeof Prism !== 'undefined' && Prism.languages) {
+          Prism.languages.gdscript = Prism.languages.python;
+          // 可以添加一些 Godot 特有的关键词
+          Prism.languages.gdscript = Prism.languages.extend('gdscript', {
+            'keyword': /\b(extends|func|var|const|onready|export|signal|enum|if|elif|else|for|while|break|continue|return|pass|class|tool|static|yield|await|setget|match|breakpoint|tool|preload)\b/
+          });
+        }
+      }, 100);
+    })();
+  </script>
 </body>
 </html>
