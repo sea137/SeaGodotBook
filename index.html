@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>SeaGodotBook - Godot教程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/docsify/4.13.0/themes/vue.css">
+  <style>
+    /* 暗黑主题样式覆盖 */
+    body, .content, .markdown-section {
+      background: #0B0E14;
+      color: #E2E8F0;
+    }
+    .sidebar {
+      background: #0F1219;
+      border-right: 1px solid #2a2f3f;
+    }
+    .sidebar-nav li>a {
+      color: #cbd5e6;
+    }
+    .sidebar-nav li>a.active {
+      color: #3b82f6;
+      border-right-color: #3b82f6;
+    }
+    .markdown-section code {
+      background: #1e2433;
+      color: #f472b6;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">加载中...</div>
+  <script>
+    window.$docsify = {
+      name: 'SeaGodotBook',
+      repo: 'https://github.com/sea137/SeaGodotBook',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      auto2top: true,
+      search: 'auto',
+      notFoundPage: true,
+      // 确保侧边栏文件名为 _sidebar.md（根目录）
+      sidebar: '_sidebar.md'
+    }
+  </script>
+  <script src="https://cdn.staticfile.org/docsify/4.13.0/docsify.min.js"></script>
+  <script src="https://cdn.staticfile.org/docsify/4.13.0/plugins/search.min.js"></script>
+</body>
+</html>
